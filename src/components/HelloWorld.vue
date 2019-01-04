@@ -28,15 +28,21 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <button @click="msgChange('lalala')">lalalalaal</button>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+
+  @Emit('msgChange')
+  private msgChange(val: string) {
+    return val;
+  }
 }
 </script>
 
